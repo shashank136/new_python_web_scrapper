@@ -41,9 +41,12 @@ def search_key(top):
 
             for no in range(1, size):
                 # champ1 = 0
-                test1 = text + str(no) + check1
-                test2 = text + str(no) + check2
-
+                if no < 10:
+                    test1 = text + str(0) + str(no) + check1
+                    test2 = text + str(0) + str(no) + check2
+                else:
+                    test1 = text + str(no) + check1
+                    test2 = text + str(no) + check2
                 try:
                     link = browser.find_element_by_id(test1).get_attribute("href")
                     # print link.get_attribute("href")
