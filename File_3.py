@@ -38,38 +38,52 @@ def school_details(new_url):
     name_of_trust_society_managing_committee = new_container[24].text.strip()
 
     # formatting the data
+    new_school_name = '\"' + school_name + '\"'
+    new_affiliation_no = '\"' + affiliation_no + '\"'
+    new_state = '\"' + state + '\"'
+    new_district = '\"' + district + '\"'
+    new_pin_code = '\"' + pin_code + '\"'
+    new_year_of_foundation = '\"' + year_of_foundation + '\"'
     new_phone_no = '\"' + phone_no + '\"'
     new_postal_address = '\"' + postal_address + '\"'
     new_email_id = '\"' + email_id + '\"'
     new_web_site = '\"' + web_site + '\"'
+    new_date_of_opening = '\"' + date_of_opening + '\"'
+    new_name_of_principal = '\"' + name_of_principal + '\"'
+    new_status_of_school = '\"' + status_of_school + '\"'
+    new_type_of_affiliation = '\"' + type_of_affiliation + '\"'
+    new_affiliation_period_from = '\"' + affiliation_period_from + '\"'
+    new_name_of_trust_society_managing_committee = '\"' + name_of_trust_society_managing_committee + '\"'
 
     updated_affiliation_period_to = re.sub(' +', ' ', affiliation_period_to)
-    new_affiliation_period_to = '\"' + updated_affiliation_period_to + '\"'
+    test_updated_affiliation_period_to = updated_affiliation_period_to.replace('\n', '')
+    check_updated_affiliation_period_to = test_updated_affiliation_period_to.replace('\t', '')
+    new_affiliation_period_to = '\"' + check_updated_affiliation_period_to + '\"'
 
     # printing the data
 
     print '------------------------------------------------------------------------------------------------------------'
-    print 'school_name    : ' + school_name
-    print 'affiliation_no : ' + affiliation_no
-    print 'Address        : ' + new_postal_address + ',' + district + ',' + state
-    print 'pin            : ' + pin_code
+    print 'school_name    : ' + new_school_name
+    print 'affiliation_no : ' + new_affiliation_no
+    print 'Address        : ' + new_postal_address + ',' + new_district + ',' + new_state
+    print 'pin            : ' + new_pin_code
     print 'phone_no       : ' + new_phone_no
     print 'email_id       : ' + new_email_id
     print 'web_site       : ' + new_web_site
-    print 'year_of_foundation : ' + year_of_foundation
-    print 'date_of_opening : ' + date_of_opening
-    print 'name_of_principal : ' + name_of_principal
+    print 'year_of_foundation : ' + new_year_of_foundation
+    print 'date_of_opening : ' + new_date_of_opening
+    print 'name_of_principal : ' + new_name_of_principal
     print 'Sex              : ' + sex
-    print 'status_of_school  : ' + status_of_school
-    print 'type_of_affiliation : ' + type_of_affiliation
-    print 'affiliation_period_from : ' + affiliation_period_from
+    print 'status_of_school  : ' + new_status_of_school
+    print 'type_of_affiliation : ' + new_type_of_affiliation
+    print 'affiliation_period_from : ' + new_affiliation_period_from
     print 'affiliation_period_to : ' + new_affiliation_period_to
-    print 'name_of_trust_society_managing_committee : ' + name_of_trust_society_managing_committee
+    print 'name_of_trust_society_managing_committee : ' + new_name_of_trust_society_managing_committee
     print '------------------------------------------------------------------------------------------------------------'
 
-    filename = "school_details.csv"
+    filename = "shashank_kumar.csv"
     f = open(filename, "a")
     f.write(
-        school_name + "," + affiliation_no + "," + state + "," + district + "," + new_postal_address + "," + pin_code + "," + new_phone_no + "," + new_email_id + "," + new_web_site + "," + year_of_foundation + "," + date_of_opening + "," + name_of_principal + "," + sex + "," + status_of_school + "," + type_of_affiliation + "," + affiliation_period_from + "," + new_affiliation_period_to + "," + name_of_trust_society_managing_committee + "\n")
+        new_school_name + "," + new_affiliation_no + "," + new_state + "," + new_district + "," + new_postal_address + "," + new_pin_code + "," + new_phone_no + "," + new_email_id + "," + new_web_site + "," + new_year_of_foundation + "," + new_date_of_opening + "," + new_name_of_principal + "," + sex + "," + new_status_of_school + "," + new_type_of_affiliation + "," + new_affiliation_period_from + "," + new_affiliation_period_to + "," + new_name_of_trust_society_managing_committee + "\n")
 
     f.close()
