@@ -3,6 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import File_3
 
+from pyvirtualdisplay import Display
+
+display = Display(visible=0, size=(800, 600))
+display.start()
+
 
 # Loops through all the pages and prints the data
 
@@ -78,3 +83,5 @@ def search_key(top):
             break
 
     browser.quit()
+
+    display.stop()
